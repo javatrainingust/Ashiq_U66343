@@ -1,0 +1,35 @@
+package com.ust.banking.service;
+
+import com.ust.banking.Entity.Account;
+import com.ust.banking.Entity.SBAccount;
+
+/*Generic service class doing the casting of account object to SBAccount type and calling the method in SBAccount class*/
+public class GenericServiceClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		SBAccount sbAccount2=new SBAccount();
+		sbAccount2.setAccountHolderName("Ashiq");
+		sbAccount2.setAccountNumber(1234);
+	
+		
+		Account[] e= {new Account(), sbAccount2};
+		
+		for (Account account2 : e) {
+			if(account2 instanceof SBAccount) {
+				System.out.println("Balance from Account class: "+account2.getBalance());
+				
+				//Here we are doing type casting
+				SBAccount sbAccount=(SBAccount)account2;
+				
+				sbAccount.calculateInterest(2);
+		}
+		
+		
+		
+		}
+		
+	}
+
+}
